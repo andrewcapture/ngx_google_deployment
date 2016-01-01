@@ -26,8 +26,8 @@ if [ $key = "yes" ]||[ $key = "y" ];then
     	echo "Two domains should not be null OR the same! Error happens!"
     	exit 1
     else
-    	echo "your google search domain is $DOMAIN2"
-    	echo "your google scholar domain is $DOMAIN1"
+    	echo "your google search domain is $DOMAIN1"
+    	echo "your google scholar domain is $DOMAIN2"
     	echo -n "Enter any key to continue ... "
         read goodmood
     	echo 'Start installing!' 	
