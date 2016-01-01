@@ -22,14 +22,16 @@ such as:
 
 # Usage:
 
-## For Debain/Ubuntu
-* wget --no-check-certificate https://raw.githubusercontent.com/arnofeng/ngx_google_deployment/master/Debian/nginx_proxy.sh
+## For Debain/Ubuntu/Centos
+* wget --no-check-certificate https://raw.githubusercontent.com/arnofeng/ngx_google_deployment/master/install.sh
 * chmod 771 ./nginx_proxy.sh
-* sh ./nginx_proxy.sh
+* bash ./nginx_proxy.sh
+
+# Depend on Projects
+* [Nginx](http://nginx.org/)
+* [ngx_http_substitutions_filter_module](https://github.com/yaoweibin/ngx_http_substitutions_filter_module)
 
 
-## For Centos
-* wget --no-check-certificate https://raw.githubusercontent.com/arnofeng/ngx_google_deployment/master/Centos/nginx_proxy.sh
-* chmod 771 ./nginx_proxy.sh
-* sh ./nginx_proxy.sh
+
+
 
