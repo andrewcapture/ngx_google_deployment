@@ -44,7 +44,7 @@ yum install -y zlib zlib-devel openssl openssl-devel
 yum install -y git gcc gcc-c++ make automake
 cd /usr/src
 #3.download  nginx-1.8.0
-wget http://nginx.org/download/nginx-1.8.0.tar.gz
+wget -N http://nginx.org/download/nginx-1.8.0.tar.gz
 tar -zxvf nginx-1.8.0.tar.gz
 #4.git clone  ngx_http_substitutions_filter_module
 git clone git://github.com/arnofeng/ngx_http_substitutions_filter_module.git
@@ -56,19 +56,20 @@ mkdir -p /var/lib/nginx/body
 make && make install
 #7.download nginx.conf
 cd /usr/src
-wget --no-check-certificate https://raw.githubusercontent.com/arnofeng/ngx_google_deployment/master/nginx.conf
+wget -N --no-check-certificate https://raw.githubusercontent.com/arnofeng/ngx_google_deployment/master/nginx.conf
 cp -r -f nginx.conf /etc/nginx/nginx.conf
 sed -i "s/g.adminhost.org/$DOMAIN1/" /etc/nginx/nginx.conf
 sed -i "s/x.adminhost.org/$DOMAIN2/" /etc/nginx/nginx.conf
 #8.mkdir /var/www/
 mkdir -p /var/www/google
 cd /var/www/google
-wget --no-check-certificate https://raw.githubusercontent.com/arnofeng/ngx_google_deployment/master/index.html
+wget -N --no-check-certificate https://raw.githubusercontent.com/arnofeng/ngx_google_deployment/master/index.html
 sed -i "s/g.adminhost.org/$DOMAIN1/" /var/www/google/index.html
 sed -i "s/x.adminhost.org/$DOMAIN2/" /var/www/google/index.html
 #9.start nginx
 /etc/nginx/sbin/nginx
 #10.set auto-start for nginx
+cp -r -f /etc/rc.local /etc/rc.local_bak
 sed -i 's/exit/\/etc\/nginx\/sbin\/nginx \nexit /' /etc/rc.local
 echo "
 #Everything seems OK!
