@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate" />
+	<meta name="referrer" content="always">
+	<title>Google By arnofeng</title>
+	<script type="text/javascript"> var t1 = new Date().getTime();</script>
+	</head>
+
+<style>body {
+	margin: 0 auto;
+	font-family: 'Georgia','宋体'
+}
+
+.content {
+	width: 80%;
+	margin: 10px auto 10px auto;
+	text-align: center;
+	padding: 20px;
+	border: 1px solid blue;
+	border-radius: 15px
+}
+
+.content.search {
+	margin-bottom: 10px;
+	font-size: 15px;
+	font-weight: bold
+}
+
+.content>.search {
+	margin-bottom: 10px;
+	font-size: 15px;
+	font-weight: bold
+}
+
+.s_btn {
+	height: 30px;
+	font-size: 15px;
+	text-align: center;
+	background: #6A5ACD;
+	color: #FFFFFF;
+	border: 1px solid blue;
+	border-radius: 6px
+}
+
+.s_btn:hover {
+	height: 30px;
+	font-size: 15px;
+	text-align: center;
+	background: #FFFFFF;
+	color: #000000;
+	border: 1px solid blue;
+	border-radius: 6px
+}
+
+.s_box {
+	width: 20%;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid#009;
+	border-radius: 6px
+}
+
+.s_box:hover {
+	width: 20%;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid red;
+	border-radius: 6px
+}
+
+#word {
+	margin: auto auto;
+	text-align: center;
+	width: 100%;
+	font-family: 'Georgia','楷体','仿宋','黑体'
+}
+
+#jsword {
+	margin: auto auto;
+	display: inline
+}
+
+#TimeShow {
+	margin: auto auto;
+	font-size: 10px;
+	font-weight: 700;
+	display: inline
+}
+
+.h {
+	margin: auto auto;
+	width: 100%;
+	height: 30px
+}
+
+#help {
+	margin: auto auto;
+	float: right;
+	text-align: center;
+	color: #000000;
+	background: none;
+	border: 1px solid blue;
+	border-radius: 6px
+}
+
+
+
+
+</style>
+
+<body>
+
+<div class="content">
+	<div class="search">
+		Search：<input type="text" id="q1" class="s_box"><input type="button" value="search" id="search1" class="s_btn" onclick="search1();">
+	</div>	
+	<div class="search">
+		Scholar：<input type="text" id="q2" class="s_box">	<input type="button" value="search" id="search2" class="s_btn" onclick="search2();">
+	</div>
+	<div class="search">
+		Pan.Baidu：<input type="text" id="q3" class="s_box">	<input type="button" value="search" id="search3" class="s_btn" onclick="search3();">
+	</div>
+	<div class="search">
+		Zhihu.com：<input type="text" id="q4" class="s_box">	<input type="button" value="search" id="search4" class="s_btn" onclick="search4();">
+	</div>
+	<div class="search">
+		V2ex.com：<input type="text" id="q5" class="s_box">	<input type="button" value="search" id="search5" class="s_btn" onclick="search5();">
+	</div>
+	<div class="search">
+		Stackoverflow：<input type="text" id="q6" class="s_box"><input type="button" value="search" id="search6" class="s_btn" onclick="search6();">
+	</div>
+	<div class="search">
+		Weixin.Sougou：<input type="text" id="q7" class="s_box">	<input type="button" value="search" id="search7" class="s_btn" onclick="search7();">
+	</div>
+
+	<div id="word">	
+		<div id="jsword"></div>	
+		<div id="TimeShow"></div>
+	</div>
+
+	
+
+</div>
+
+
+<script type="text/javascript">
+
+function goto(url) {
+	if(/MSIE (\d+\.\d+);/.test(navigator.userAgent)||/MSIE(\d+\.\d+);/.test(navigator.userAgent)){var referLink=document.createElement('a');referLink.href=url;document.body.appendChild(referLink);referLink.click()
+}
+
+else {
+	location.href=url;
+}}
+
+
+var keyword1=document.getElementById("q1");function search1() {
+	goto("http://g.adminhost.org/search?newwindow=1&safe=off&q="+encodeURIComponent(keyword1.value)+"&gws_rd=ssl")
+}
+
+var keyword2=document.getElementById("q2");function search2() {
+	goto("http://x.adminhost.org/scholar?hl=zh-CN&q="+encodeURIComponent(keyword2.value)+"&btnG=&lr=")
+}
+
+var keyword3=document.getElementById("q3");function search3() {
+	goto("http://g.adminhost.org/search?newwindow=1&safe=off&q=site:pan.baidu.com+"+encodeURIComponent(keyword3.value)+"&btnG=&lr=")
+}
+
+var keyword4=document.getElementById("q4");function search4() {
+	goto("http://g.adminhost.org/search?newwindow=1&safe=off&q=site:zhihu.com+"+encodeURIComponent(keyword4.value)+"&btnG=&lr=")
+}
+
+var keyword5=document.getElementById("q5");function search5() {
+	goto("http://g.adminhost.org/search?newwindow=1&safe=off&q=site:v2ex.com+"+encodeURIComponent(keyword5.value)+"&btnG=&lr=")
+}
+
+var keyword6=document.getElementById("q6");function search6() {
+	goto("http://g.adminhost.org/search?newwindow=1&safe=off&q=site:stackoverflow.com+"+encodeURIComponent(keyword6.value)+"&btnG=&lr=")
+}
+
+var keyword7=document.getElementById("q7");function search7() {
+	goto("http://weixin.sogou.com/weixin?query=+"+encodeURIComponent(keyword7.value)+"&fr=sgsearch&type=2&ie=utf8&w=01019900&sut=861&sst0=1441339096829&lkt=3%2C1441339095969%2C1441339096392")
+}
+
+document.onkeydown=function(e) {
+	e=e||event;var key=e.keyCode||e.charCode;
+	if(key==13){
+		var curId=event.srcElement.id;
+		switch(curId){
+			case"q1": search1();break;
+			case"q2": search2();break;
+			case"q3": search3();break;
+			case"q4": search4();break;
+			case"q5": search5();break;
+			case"q6": search6();break;
+			case"q7": search7();break;
+			default: search1()
+		}
+	}
+};
+
+
+
+
+
+window.onload=function() {
+	document.getElementById("q1").focus();
+};
+
+</script>
+
+
+</body>
+
+</html>			
