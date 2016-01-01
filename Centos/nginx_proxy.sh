@@ -2,7 +2,7 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 #===============================================================================================
-#   System Required:  Debian or Ubuntu (32bit/64bit)
+#   System Required:  Centos (32bit/64bit)
 #   Description:  Install Proxy for Google by Nginx
 #   Author: Arno <blogfeng@blogfeng.com>
 #   Intro:  https://github.com/arnofeng/ngx_google_deployment
@@ -13,7 +13,7 @@ echo "
 #This project is on url:arnofeng.github.io
 #thank you for any feedback to me
 "
-echo -n "To be sure your system is Debian/Ubuntu,please enter 'y/yes' to continue: "  
+echo -n "To be sure your system is Centos,please enter 'y/yes' to continue: "  
 read key
 if [ $key = "yes" ]||[ $key = "y" ];then
 	echo -n "Set your domain for google search: " 
@@ -37,11 +37,11 @@ else
 	exit 1
 fi
 #1.update  system
-apt-get update
+yum update
 #2.install  dependency
-apt-get install -y libpcre3 libpcre3-dev 
-apt-get install -y zlib1g zlib1g-dev openssl libssl-dev
-apt-get install -y git gcc g++ make automake
+yyum install -y pcre pcre-devel 
+yum install -y  zlib zlib-devel openssl openssl-devel
+yum install -y git gcc gcc-c++ make automake
 cd /usr/src
 #3.download  nginx-1.8.0
 wget http://nginx.org/download/nginx-1.8.0.tar.gz
