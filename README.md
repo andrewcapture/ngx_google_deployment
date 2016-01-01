@@ -14,15 +14,13 @@ such as:
 
 ## For Debain/Ubuntu
 * wget --no-check-certificate https://raw.githubusercontent.com/arnofeng/ngx_google_deployment/master/Debian/nginx_proxy.sh
-* chmod 771
-* ./nginx_proxy.sh
+* chmod 771 ./nginx_proxy.sh
 * sh nginx_proxy.sh
 
 
 ## For Centos
 * wget --no-check-certificate https://raw.githubusercontent.com/arnofeng/ngx_google_deployment/master/Centos/nginx_proxy.sh
-* chmod 771
-* ./nginx_proxy.sh
+* chmod 771 ./nginx_proxy.sh
 * sh nginx_proxy.sh
 
 
