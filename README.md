@@ -12,6 +12,13 @@ such as:
 * Ensure your Linux did not install nginx before OR has uninstalled it properly.
 * Prepare 2 domains/subdomains for "Google Search" and "Goole Scholar".
 
+
+# Important Instruction
+* Initial configure does not require SSL/HTTPS.This means you can only access your web by HTTP in the beginning.By the way,you can deploy your SSL/HTTPS upon this project.
+* Configure document is "/etc/nginx/nginx.conf".
+* Start nginx by using "/etc/nginx/sbin/nginx" / ("/etc/nginx/sbin/nginx -s reload") / ("/etc/nginx/sbin/nginx -s stop").
+* You can edit "nginx.conf" by yourself such as "Backend for google.com".
+
 # Usage:
 
 ## For Debain/Ubuntu
@@ -24,5 +31,4 @@ such as:
 * wget --no-check-certificate https://raw.githubusercontent.com/arnofeng/ngx_google_deployment/master/Centos/nginx_proxy.sh
 * chmod 771 ./nginx_proxy.sh
 * sh ./nginx_proxy.sh
-
 
