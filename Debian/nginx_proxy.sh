@@ -10,8 +10,8 @@ export PATH
 clear
 echo "
 #This shell is for Nginx_proxy_google on Debian
-#This project is on url:arnofeng.github.io
-#thank you for any feedback to me
+#This project is on url:https://github.com/arnofeng/ngx_google_deployment
+#Thank you for any feedback to me:blogfeng@blogfeng.com
 "
 echo -n "To be sure your system is Debian/Ubuntu,please enter 'y/yes' to continue: "  
 read key
