@@ -3,7 +3,7 @@
 * This project orgins from https://g.adminhost.org
 
 ## Things you should do before your deployment
-* Test Port 80 and kill the Pid which use :80.
+* Test Port 80 and kill the Pid which uses :80.
 ```javascript
 such as:
 * lsof -i :80|grep -v "PID"
@@ -11,6 +11,8 @@ such as:
 ```
 * Ensure your Linux did not install nginx before OR hqve uninstalled it.
 * Prepare 2 domains/subdomains for "Google Search" an "Goole Scholar".
+
+# Usage:
 
 ## For Debain/Ubuntu
 * wget --no-check-certificate https://raw.githubusercontent.com/arnofeng/ngx_google_deployment/master/Debian/nginx_proxy.sh
