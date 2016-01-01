@@ -23,9 +23,9 @@ such as:
 # Usage:
 
 ## For Debain/Ubuntu/Centos
-* wget --no-check-certificate https://raw.githubusercontent.com/arnofeng/ngx_google_deployment/master/install.sh
-* chmod 771 ./nginx_proxy.sh
-* bash ./nginx_proxy.sh
+* wget -N --no-check-certificate https://raw.githubusercontent.com/arnofeng/ngx_google_deployment/master/install.sh
+* chmod 771 ./install.sh
+* bash ./install.sh
 
 # Depend on Projects
 * [Nginx](http://nginx.org/)
