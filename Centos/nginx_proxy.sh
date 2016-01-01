@@ -39,8 +39,8 @@ fi
 #1.update  system
 yum update
 #2.install  dependency
-yyum install -y pcre pcre-devel 
-yum install -y  zlib zlib-devel openssl openssl-devel
+yum install -y pcre pcre-devel 
+yum install -y zlib zlib-devel openssl openssl-devel
 yum install -y git gcc gcc-c++ make automake
 cd /usr/src
 #3.download  nginx-1.8.0
