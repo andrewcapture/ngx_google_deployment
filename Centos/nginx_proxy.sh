@@ -38,6 +38,11 @@ else
 fi
 #1.update  system
 yum update
+if [ $? -eq 0 ]; then
+	echo "update success"
+else
+	yum update
+fi
 #2.install  dependency
 yum install -y pcre pcre-devel
 if [ $? -eq 0 ]; then
@@ -84,6 +89,7 @@ sed -i "s/x.adminhost.org/$DOMAIN2/" /var/www/google/index.html
 #9.set auto-start for nginx
 cp -r -f /etc/rc.local /etc/rc.local_bak
 sed -i 's/\"exit 0\"/\#/' /etc/rc.local
+sed -i 's/\#exit 0/\#/' /etc/rc.local
 sed -i 's/exit 0/\/etc\/nginx\/sbin\/nginx \nexit 0/' /etc/rc.local
 #10.start nginx
 /etc/nginx/sbin/nginx
