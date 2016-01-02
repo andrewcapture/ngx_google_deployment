@@ -1,6 +1,6 @@
 # ngx_google_deployment
 * Install Proxy for Google by Nginx.
-* This project orgins from g.adminhost.org(can only be accessed by typing the domain).
+* This project origins from g.adminhost.org(can only be accessed by typing the domain).
 
 # [中文说明](http://www.blogfeng.com/ngx_google_deployment.html)
 
