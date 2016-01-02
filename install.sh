@@ -11,6 +11,7 @@ clear
 echo "
 #This shell is for Nginx_proxy_google
 #This project is on url:https://github.com/arnofeng/ngx_google_deployment
+#Current release is Nginx-1.8.0
 #Thank you for any feedback to me:blogfeng@blogfeng.com
 "
 # Make sure only root can run our script
@@ -48,9 +49,9 @@ function uninstall {
         rm -rf /var/www/google
         rm -rf /usr/src/nginx*
         
-        echo "ngx_google_deployment uninstall success!"
+        echo "Ngx_google_deployment uninstall success!"
     else
-        echo "uninstall cancelled, Nothing to do"
+        echo "Uninstall cancelled, Nothing to do"
     fi
 }
 
@@ -59,7 +60,7 @@ function Install {
     echo -n "Select which you want:
 	1.Install for Debian/Ubuntu
 	2.Install for Centos
-	3.Uinstall ngx_google_deployment
+	3.Uninstall ngx_google_deployment
 
 	:"  
 	read key
