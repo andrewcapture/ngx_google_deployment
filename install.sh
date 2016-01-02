@@ -32,8 +32,8 @@ function uninstall {
     if [ "$answer" = "y" ]; then
         /etc/nginx/sbin/nginx -s stop
         if [ $? -eq 0 ]; then
-                    echo "ngx_google_deployment process[$pid] has been killed"
-                fi
+                    echo "ngx_google_deployment process has been killed"
+        fi
         # restore /etc/rc.local
         if [[ -s /etc/rc.local_bak ]]; then
             rm -f /etc/rc.local
@@ -74,7 +74,7 @@ function Install {
 	elif [ $key = "3" ]; then
 		uninstall
 	else
-		echo '#Error option,exit!'
+		echo '#Wrong option,exit!'
 		exit 1
 	fi
 }
