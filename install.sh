@@ -45,7 +45,7 @@ function uninstall {
         # delete nginx
         rm -rf /var/log/nginx
         rm -rf /var/lib/nginx
-        rm -rf /usr/src/ngx_http_substitutions_filter_module
+        rm -rf /usr/src/ngx_http_substitutions_filter_module*
         rm -rf /var/www/google
         rm -rf /usr/src/nginx*
         
@@ -57,7 +57,8 @@ function uninstall {
 
 # Install ngx_google_deployment
 function Install {
-    echo -n "Select which you want:
+    echo -n "
+	Select which you want:
 	1.Install for Debian/Ubuntu
 	2.Install for Centos
 	3.Uninstall ngx_google_deployment

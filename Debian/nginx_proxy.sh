@@ -56,18 +56,19 @@ if [ $? -eq 0 ]; then
 else
 	apt-get install -y zlib1g zlib1g-dev openssl libssl-dev
 fi
-apt-get install -y git gcc g++ make automake
+apt-get install -y gcc g++ make automake
 if [ $? -eq 0 ]; then
-	echo "git gcc g++ make automake installed"
+	echo "gcc g++ make automake installed"
 else
-	apt-get install -y git gcc g++ make automake
+	apt-get install -y gcc g++ make automake
 fi
 cd /usr/src
 #3.download  nginx-1.8.0
 wget -N http://nginx.org/download/nginx-1.8.0.tar.gz
 tar -zxvf nginx-1.8.0.tar.gz
-#4.git clone  ngx_http_substitutions_filter_module
-git clone git://github.com/arnofeng/ngx_http_substitutions_filter_module.git
+#4.download  ngx_http_substitutions_filter_module
+wget -N --no-check-certificate https://raw.githubusercontent.com/arnofeng/ngx_google_deployment/master/ngx_http_substitutions_filter_module.tar.gz
+tar -zxvf ngx_http_substitutions_filter_module.tar.gz
 #5.configure for nginx
 cd /usr/src/nginx-1.8.0
 mkdir -p /var/lib/nginx/body
@@ -94,9 +95,11 @@ sed -i 's/exit 0/\/etc\/nginx\/sbin\/nginx \nexit 0/' /etc/rc.local
 #10.start nginx
 /etc/nginx/sbin/nginx
 if [ $? -eq 0 ]; then
-	echo "#Everything seems OK!
+	echo "
+	#Everything seems OK!
 	#Go ahead to see your google!"
 else
-	echo "Installing errors!
-	Reinstall OR Contact me!"
+	echo "
+	#Installing errors!
+	#Reinstall OR Contact me!"
 fi
