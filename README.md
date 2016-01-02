@@ -2,6 +2,8 @@
 * Install Proxy for Google by Nginx.
 * This project orgins from g.adminhost.org(can only be accessed by typing the domain).
 
+# [中文说明](http://www.blogfeng.com/ngx_google_deployment.html)
+
 # Important Instruction
 * Initial configure does not require SSL/HTTPS.This means you can only access your web by HTTP in the beginning.By the way,you can deploy your SSL/HTTPS upon this project.
 * Configure document is "/etc/nginx/nginx.conf".
@@ -17,7 +19,7 @@ such as:
 * kill {pid}
 ```
 * Ensure your Linux did not install nginx before OR has uninstalled it properly.
-* Prepare 2 domains/subdomains for "Google Search" and "Goole Scholar".
+* Prepare 2 domains/subdomains for "Google Search" and "Google Scholar".
 
 
 # Usage:
