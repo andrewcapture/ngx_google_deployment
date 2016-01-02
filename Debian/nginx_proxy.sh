@@ -39,9 +39,24 @@ fi
 #1.update  system
 apt-get update
 #2.install  dependency
-apt-get install -y libpcre3 libpcre3-dev 
+apt-get install -y libpcre3 libpcre3-dev
+if [ $? -eq 0 ]; then
+	echo "libpcre3 libpcre3-dev installed"
+else
+	apt-get install -y libpcre3 libpcre3-dev
+fi
 apt-get install -y zlib1g zlib1g-dev openssl libssl-dev
+if [ $? -eq 0 ]; then
+	echo "zlib1g zlib1g-dev openssl libssl-dev installed"
+else
+	apt-get install -y zlib1g zlib1g-dev openssl libssl-dev
+fi
 apt-get install -y git gcc g++ make automake
+if [ $? -eq 0 ]; then
+	echo "git gcc g++ make automake installed"
+else
+	apt-get install -y git gcc g++ make automake
+fi
 cd /usr/src
 #3.download  nginx-1.8.0
 wget -N http://nginx.org/download/nginx-1.8.0.tar.gz
@@ -66,13 +81,16 @@ cd /var/www/google
 wget -N --no-check-certificate https://raw.githubusercontent.com/arnofeng/ngx_google_deployment/master/index.html
 sed -i "s/g.adminhost.org/$DOMAIN1/" /var/www/google/index.html
 sed -i "s/x.adminhost.org/$DOMAIN2/" /var/www/google/index.html
-#9.start nginx
-/etc/nginx/sbin/nginx
-#10.set auto-start for nginx
+#9.set auto-start for nginx
 cp -r -f /etc/rc.local /etc/rc.local_bak
 sed -i 's/\"exit 0\"/\#/' /etc/rc.local
 sed -i 's/exit 0/\/etc\/nginx\/sbin\/nginx \nexit 0/' /etc/rc.local
-echo "
-#Everything seems OK!
-#Go ahead to see your google!
-"
+#10.start nginx
+/etc/nginx/sbin/nginx
+if [ $? -eq 0 ]; then
+	echo "#Everything seems OK!
+	#Go ahead to see your google!"
+else
+	echo "Installing errors!
+	Reinstall OR Contact me!"
+fi

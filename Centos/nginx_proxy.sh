@@ -39,9 +39,24 @@ fi
 #1.update  system
 yum update
 #2.install  dependency
-yum install -y pcre pcre-devel 
+yum install -y pcre pcre-devel
+if [ $? -eq 0 ]; then
+	echo "pcre pcre-devel installed"
+else
+	yum install -y pcre pcre-devel
+fi
 yum install -y zlib zlib-devel openssl openssl-devel
+if [ $? -eq 0 ]; then
+	echo "zlib zlib-devel openssl openssl-devel installed"
+else
+	yum install -y zlib zlib-devel openssl openssl-devel
+fi
 yum install -y git gcc gcc-c++ make automake
+if [ $? -eq 0 ]; then
+	echo "git gcc gcc-c++ make automake installed"
+else
+	yum install -y git gcc gcc-c++ make automake
+fi
 cd /usr/src
 #3.download  nginx-1.8.0
 wget -N http://nginx.org/download/nginx-1.8.0.tar.gz
@@ -66,13 +81,16 @@ cd /var/www/google
 wget -N --no-check-certificate https://raw.githubusercontent.com/arnofeng/ngx_google_deployment/master/index.html
 sed -i "s/g.adminhost.org/$DOMAIN1/" /var/www/google/index.html
 sed -i "s/x.adminhost.org/$DOMAIN2/" /var/www/google/index.html
-#9.start nginx
-/etc/nginx/sbin/nginx
-#10.set auto-start for nginx
+#9.set auto-start for nginx
 cp -r -f /etc/rc.local /etc/rc.local_bak
 sed -i 's/\"exit 0\"/\#/' /etc/rc.local
 sed -i 's/exit 0/\/etc\/nginx\/sbin\/nginx \nexit 0/' /etc/rc.local
-echo "
-#Everything seems OK!
-#Go ahead to see your google!
-"
+#10.start nginx
+/etc/nginx/sbin/nginx
+if [ $? -eq 0 ]; then
+	echo "#Everything seems OK!
+	#Go ahead to see your google!"
+else
+	echo "Installing errors!
+	Reinstall OR Contact me!"
+fi
