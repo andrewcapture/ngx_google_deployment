@@ -2,6 +2,14 @@
 * Install Proxy for Google by Nginx.
 * This project origins from g.adminhost.org(can only be accessed by typing the domain).
 
+```javascript
+* 1.Forbid popular spiders like Google、Baidu;
+* 2.Forbid any illegal referer;
+* 3.Limit frequency of the same IP at 10 times in 1 second;
+* 4.Can only access this site by typing the domian or using bookmarks;
+* 5.If pages show "403 Forbid",try to delete "cookies" in your browser;
+```
+
 # [中文说明](http://www.blogfeng.com/ngx_google_deployment.html)
 
 # Important Instruction
