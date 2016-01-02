@@ -70,7 +70,8 @@ sed -i "s/x.adminhost.org/$DOMAIN2/" /var/www/google/index.html
 /etc/nginx/sbin/nginx
 #10.set auto-start for nginx
 cp -r -f /etc/rc.local /etc/rc.local_bak
-sed -i 's/exit/\/etc\/nginx\/sbin\/nginx \nexit /' /etc/rc.local
+sed -i 's/\"exit 0\"/\#/' /etc/rc.local
+sed -i 's/exit 0/\/etc\/nginx\/sbin\/nginx \nexit 0/' /etc/rc.local
 echo "
 #Everything seems OK!
 #Go ahead to see your google!
