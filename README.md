@@ -11,7 +11,7 @@
 And more is to be discovered.
 ```
 
-# [中文说明](http://www.blogfeng.com/ngx_google_deployment.html)
+# [中文说明](http://arnofeng.github.io/%E6%96%87%E7%AB%A0/2016-01/NGD.html)
 
 # Important Instruction
 * Initial configure does not require SSL/HTTPS.This means you can only access your web by HTTP in the beginning.By the way,you can deploy your SSL/HTTPS upon this project.
