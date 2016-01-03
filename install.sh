@@ -22,6 +22,47 @@ if [[ $EUID -ne 0 ]]; then
 fi
 }
 
+# Update nginx.conf
+function update {
+	echo -n "Tell me your domain for google search: " 
+    read key1
+    DOMAIN1=$key1
+    echo -n "Tell me your domain for google scholar: "
+    read key2
+    DOMAIN2=$key2
+    if [ ! $DOMAIN1 ]||[ ! $DOMAIN2 ]||[ $DOMAIN1 = $DOMAIN2 ];then
+    	echo "#Two domains should not be null OR the same! Error happens!"
+    	exit 1
+    else
+    	echo "your google search domain is $DOMAIN1"
+    	echo "your google scholar domain is $DOMAIN2"
+    	echo -n "Enter any key to continue ... "
+        read goodmood
+    	echo 'Start updating!' 	
+    fi
+	/etc/nginx/sbin/nginx -s stop
+    if [ $? -eq 0 ]; then
+        echo "ngx_google_deployment process has been killed"
+    fi
+	mkdir -p /etc/nginx/vhost
+	cd /usr/src
+	wget -N --no-check-certificate https://raw.githubusercontent.com/arnofeng/ngx_google_deployment/master/nginx.conf	
+	sed -i "s/g.adminhost.org/$DOMAIN1/" /usr/src/nginx.conf
+	sed -i "s/x.adminhost.org/$DOMAIN2/" /usr/src/nginx.conf
+	cp -r -f /usr/src/nginx.conf /etc/nginx/nginx.conf
+	/etc/nginx/sbin/nginx
+	if [ $? -eq 0 ]; then		
+        echo "
+		#nginx.conf has been updated!"
+	else
+		echo "
+		#Something wrong!
+		#Your ngx_google_deployment did not install properly?
+		#Reinstall OR Cantact me!"
+		exit 1
+    fi
+}
+
 # Uninstall ngx_google_deployment
 function uninstall {
     echo "Are you sure uninstall ngx_google_deployment? (y/n) "
@@ -49,9 +90,9 @@ function uninstall {
         rm -rf /var/www/google
         rm -rf /usr/src/nginx*
         
-        echo "Ngx_google_deployment uninstall success!"
+        echo "#Ngx_google_deployment uninstall success!"
     else
-        echo "Uninstall cancelled, Nothing to do"
+        echo "#Uninstall cancelled, Nothing to do"
     fi
 }
 
@@ -61,7 +102,8 @@ function Install {
 	Select which you want:
 	1.Install for Debian/Ubuntu
 	2.Install for Centos
-	3.Uninstall ngx_google_deployment
+	3.Update nginx.conf (Ensure you have installed before)
+	4.Uninstall ngx_google_deployment
 
 	:"  
 	read key
@@ -74,6 +116,8 @@ function Install {
 		chmod 771 ./nginx_proxy.sh
 		bash ./nginx_proxy.sh
 	elif [ $key = "3" ]; then
+		update
+	elif [ $key = "4" ]; then
 		uninstall
 	else
 		echo '#Wrong option,exit!'
