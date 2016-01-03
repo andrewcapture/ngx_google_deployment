@@ -81,6 +81,7 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/arnofeng/ngx_go
 cp -r -f nginx.conf /etc/nginx/nginx.conf
 sed -i "s/g.adminhost.org/$DOMAIN1/" /etc/nginx/nginx.conf
 sed -i "s/x.adminhost.org/$DOMAIN2/" /etc/nginx/nginx.conf
+mkdir -p /etc/nginx/vhost
 #8.mkdir /var/www/
 mkdir -p /var/www/google
 cd /var/www/google
