@@ -7,7 +7,6 @@
 	<meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate" />
 	<meta name="referrer" content="always">
 	<title>Google by arnofeng</title>
-	<script type="text/javascript"> var t1 = new Date().getTime();</script>
 	</head>
 
 <style>
@@ -73,40 +72,6 @@ body {
 	border-radius: 6px
 }
 
-#word {
-	margin: auto auto;
-	text-align: center;
-	width: 100%;
-	font-family: 'Georgia','楷体','仿宋','黑体'
-}
-
-#jsword {
-	margin: auto auto;
-	display: inline
-}
-
-#TimeShow {
-	margin: auto auto;
-	font-size: 10px;
-	font-weight: 700;
-	display: inline
-}
-
-.h {
-	margin: auto auto;
-	width: 100%;
-	height: 30px
-}
-
-#help {
-	margin: auto auto;
-	float: right;
-	text-align: center;
-	color: #000000;
-	background: none;
-	border: 1px solid blue;
-	border-radius: 6px
-}
 
 
 
@@ -138,13 +103,6 @@ body {
 		Weixin.Sougou：<input type="text" id="q7" class="s_box">	<input type="button" value="search" id="search7" class="s_btn" onclick="search7();">
 	</div>
 
-	<div id="word">	
-		<div id="jsword"></div>	
-		<div id="TimeShow"></div>
-	</div>
-
-	
-
 </div>
 
 
@@ -160,7 +118,12 @@ else {
 
 
 var keyword1=document.getElementById("q1");function search1() {
-	goto("http://g.adminhost.org/search?newwindow=1&safe=off&q="+encodeURIComponent(keyword1.value)+"&gws_rd=ssl")
+	if(keyword1.value==''||keyword1.value==null||keyword1.value== undefined){
+	goto("https://g.adminhost.org/webhp")
+	}
+	else{
+	goto("https://g.adminhost.org/search?newwindow=1&safe=off&q="+encodeURIComponent(keyword1.value)+"&gws_rd=ssl")
+	}
 }
 
 var keyword2=document.getElementById("q2");function search2() {
@@ -199,7 +162,7 @@ document.onkeydown=function(e) {
 			case"q5": search5();break;
 			case"q6": search6();break;
 			case"q7": search7();break;
-			default: search1()
+			default: search1();
 		}
 	}
 };
