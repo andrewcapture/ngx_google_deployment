@@ -7,7 +7,7 @@
 	<meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate" />
 	<meta name="referrer" content="always">
 	<title>Google by arnofeng</title>
-	</head>
+</head>
 
 <style>
 body {
@@ -119,10 +119,10 @@ else {
 
 var keyword1=document.getElementById("q1");function search1() {
 	if(keyword1.value==''||keyword1.value==null||keyword1.value== undefined){
-	goto("https://g.adminhost.org/webhp")
+	goto("http://g.adminhost.org/webhp")
 	}
 	else{
-	goto("https://g.adminhost.org/search?newwindow=1&safe=off&q="+encodeURIComponent(keyword1.value)+"&gws_rd=ssl")
+	goto("http://g.adminhost.org/search?newwindow=1&safe=off&q="+encodeURIComponent(keyword1.value)+"&gws_rd=ssl")
 	}
 }
 
@@ -167,17 +167,11 @@ document.onkeydown=function(e) {
 	}
 };
 
-
-
-
-
 window.onload=function() {
 	document.getElementById("q1").focus();
 };
 
 </script>
 
-
 </body>
-
 </html>			
