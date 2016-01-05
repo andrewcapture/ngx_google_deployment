@@ -82,7 +82,6 @@ cp -r -f nginx.conf /etc/nginx/nginx.conf
 sed -i "s/g.adminhost.org/$DOMAIN1/" /etc/nginx/nginx.conf
 sed -i "s/x.adminhost.org/$DOMAIN2/" /etc/nginx/nginx.conf
 mkdir -p /etc/nginx/vhost
-mkdir -p /etc/nginx/nginx_temp
 mkdir -p /etc/nginx/cache/one
 mkdir -p /etc/nginx/cache/two
 mkdir -p /etc/nginx/cache/three
