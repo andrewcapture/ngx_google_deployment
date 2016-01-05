@@ -47,8 +47,8 @@ function update {
 	mkdir -p /etc/nginx/vhost
 	cd /usr/src
 	wget -N --no-check-certificate https://raw.githubusercontent.com/arnofeng/ngx_google_deployment/master/nginx.conf	
-	sed -i "s/g.adminhost.org/$DOMAIN1/" /usr/src/nginx.conf
-	sed -i "s/x.adminhost.org/$DOMAIN2/" /usr/src/nginx.conf
+	sed -i "s#g.adminhost.org#$DOMAIN1#g" /usr/src/nginx.conf
+	sed -i "s#x.adminhost.org#$DOMAIN2#g" /usr/src/nginx.conf
 	cp -r -f /usr/src/nginx.conf /etc/nginx/nginx.conf
 	/etc/nginx/sbin/nginx
 	if [ $? -eq 0 ]; then		

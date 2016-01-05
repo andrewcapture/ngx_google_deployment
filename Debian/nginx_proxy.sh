@@ -79,8 +79,8 @@ make && make install
 cd /usr/src
 wget -N --no-check-certificate https://raw.githubusercontent.com/arnofeng/ngx_google_deployment/master/nginx.conf
 cp -r -f nginx.conf /etc/nginx/nginx.conf
-sed -i "s/g.adminhost.org/$DOMAIN1/" /etc/nginx/nginx.conf
-sed -i "s/x.adminhost.org/$DOMAIN2/" /etc/nginx/nginx.conf
+sed -i "s#g.adminhost.org#$DOMAIN1#g" /etc/nginx/nginx.conf
+sed -i "s#x.adminhost.org#$DOMAIN2#g" /etc/nginx/nginx.conf
 mkdir -p /etc/nginx/vhost
 mkdir -p /etc/nginx/cache/one
 mkdir -p /etc/nginx/cache/two
@@ -89,13 +89,19 @@ mkdir -p /etc/nginx/cache/three
 mkdir -p /var/www/google
 cd /var/www/google
 wget -N --no-check-certificate https://raw.githubusercontent.com/arnofeng/ngx_google_deployment/master/index.html
-sed -i "s/g.adminhost.org/$DOMAIN1/" /var/www/google/index.html
-sed -i "s/x.adminhost.org/$DOMAIN2/" /var/www/google/index.html
+sed -i "s#g.adminhost.org#$DOMAIN1#g" /var/www/google/index.html
+sed -i "s#x.adminhost.org#$DOMAIN2#g" /var/www/google/index.html
 #9.set auto-start for nginx
 cp -r -f /etc/rc.local /etc/rc.local_bak
-sed -i 's/\"exit 0\"/\#/' /etc/rc.local
-sed -i 's/\#exit 0/\#/' /etc/rc.local
-sed -i 's/exit 0/\/etc\/nginx\/sbin\/nginx \nexit 0/' /etc/rc.local
+AUTO='/etc/nginx/sbin/nginx'
+cat /etc/rc.local|grep 'exit 0'
+if [ $? -eq 0 ]; then
+	sed -i 's/\"exit 0\"/\#/g' /etc/rc.local
+	sed -i 's/\#exit 0/\#/g' /etc/rc.local
+	sed -i "s#exit 0#$AUTO\nexit 0#" /etc/rc.local
+else
+	echo "$AUTO">>/etc/rc.local
+fi
 #10.start nginx
 /etc/nginx/sbin/nginx
 if [ $? -eq 0 ]; then
