@@ -21,13 +21,6 @@ And more is to be discovered.
 
 # Things you should do before your deployment
 * You should run this project by ROOT user.
-* Test Port 80 and kill the Pid which uses :80.
-```javascript
-such as:
-* lsof -i :80|grep -v "PID"
-* kill {pid}
-```
-* Ensure your Linux did not install nginx before OR has uninstalled it properly.
 * Prepare 2 domains/subdomains for "Google Search" and "Google Scholar".
 
 

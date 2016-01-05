@@ -96,6 +96,17 @@ function uninstall {
     fi
 }
 
+# Kill :80
+function kill80 {
+	lsof -i :80|grep -v 'PID'|awk '{print $2}'|xargs kill -9
+	if [ $? -eq 0 ]; then
+        echo ":80 process has been killed!"
+	else
+		echo "no :80 process!"
+    fi
+	
+}
+
 # Install ngx_google_deployment
 function Install {
     echo -n "
@@ -108,10 +119,12 @@ function Install {
 	:"  
 	read key
 	if [ $key = "1" ];then
+		kill80
 		wget -N --no-check-certificate https://raw.githubusercontent.com/arnofeng/ngx_google_deployment/master/Debian/nginx_proxy.sh
 		chmod 771 ./nginx_proxy.sh
 		bash ./nginx_proxy.sh
 	elif [ $key = "2" ]; then
+		kill80
 		wget -N --no-check-certificate https://raw.githubusercontent.com/arnofeng/ngx_google_deployment/master/Centos/nginx_proxy.sh
 		chmod 771 ./nginx_proxy.sh
 		bash ./nginx_proxy.sh
