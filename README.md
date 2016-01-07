@@ -1,6 +1,6 @@
 # ngx_google_deployment
 * Install Proxy for Google by Nginx.
-* This project origins from g.adminhost.org(can only be accessed by typing the domain).
+* This project originated from g.adminhost.org(can only be accessed by typing the domain).
 
 ```javascript
 1.Forbid popular spiders like Google、Baidu;
@@ -11,7 +11,7 @@
 And more is to be discovered.
 ```
 
-# [中文说明](http://arnofeng.github.io/%E6%96%87%E7%AB%A0/2016-01/NGD.html)
+# [中文说明](http://arnofeng.github.io/diary/2016-01/NGD.html)
 
 # Important Instruction
 * Initial configure does not require SSL/HTTPS.This means you can only access your web by HTTP in the beginning.By the way,you can deploy your SSL/HTTPS upon this project.
